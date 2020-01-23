@@ -15,22 +15,22 @@
 <body>
 <div class="container mt-4">
     <form action="HelloServlet" method="get">
-        <div style="background-color:#f1f1f1">
+        <div>
              <button type="submit">Click me</button>
         </div>
     </form>
-    <form action="" method="">
+    <form action="LoginController" method="POST">
         <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="inputLogin">User Name:</label>
             <div class="col-sm-5">
-                <input class="form-control" id="inputLogin" type="text" name="username" placeholder="Login"/>
+                <input class="form-control" id="inputLogin" type="text" name="username" value='<%=request.getParameter("username")%>' placeholder="Login"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="inputPassword">Password:</label>
             <div class="col-sm-5">
-                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Password"/>
+                <input class="form-control" id="inputPassword" type="password" name="password" value='<%=request.getParameter("password")%>' placeholder="Password"/>
             </div>
         </div>
         <div class="form-group row">
@@ -39,7 +39,7 @@
                 <a href="${registrationURL}" class="btn btn-warning" role="button">Add new USER</a>
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </div>
     </form>

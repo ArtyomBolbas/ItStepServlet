@@ -1,4 +1,4 @@
-package com.itstep.app;
+package com.itstep.app.controller.filter;
 
 import javax.servlet.*;
 
