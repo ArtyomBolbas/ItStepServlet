@@ -7,6 +7,10 @@
          version="2.5">
   <display-name>Archetype Created Web Application</display-name>
 
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>com.itstep.app.controller.HelloServlet</servlet-class>
@@ -36,4 +40,13 @@
     <servlet-name>ShowProducts</servlet-name>
     <url-pattern>/ShowProducts</url-pattern>
   </servlet-mapping>
+
+  <filter>
+    <filter-name>CookieFilter</filter-name>
+    <filter-class>com.itstep.app.controller.filter.CookieFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CookieFilter</filter-name>
+    <url-pattern>/LoginController</url-pattern>
+  </filter-mapping>
 </web-app>

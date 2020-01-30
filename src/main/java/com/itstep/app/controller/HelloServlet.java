@@ -20,7 +20,7 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("Hello servlet GET");
-        Cookie[] cookies = request.getCookies();
+        /*Cookie[] cookies = request.getCookies();
         Cookie login = getCookie(cookies, USER_NAME);
         Cookie password = getCookie(cookies, USER_PASSWORD);
         if (login != null && !login.getValue().isEmpty()) {
@@ -29,8 +29,8 @@ public class HelloServlet extends HttpServlet {
         }
         if (password != null && !password.getValue().isEmpty()) {
             request.setAttribute(USER_PASSWORD, password.getValue());
-        }
-        response.sendRedirect(request.getContextPath());
+        }*/
+        response.sendRedirect(request.getContextPath() + "/LoginController");
     }
 
     private Cookie getCookie(Cookie[] savedCookies, String nameCookie) {

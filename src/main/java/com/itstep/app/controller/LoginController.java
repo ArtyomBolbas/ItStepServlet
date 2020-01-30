@@ -3,6 +3,7 @@ package com.itstep.app.controller;
 import com.itstep.app.service.ValidationService;
 import com.itstep.app.service.ValidationServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,15 @@ public class LoginController extends HttpServlet {
     private final int ONE_HOUR = 600;
 
     private ValidationService validationService = new ValidationServiceImpl();
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Hello GET - LoginController");
+        response.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
+        response.setHeader("Location", request.getContextPath() + "/LoginController");
+        response.sendRedirect(request.getContextPath() + "/LoginController");
+        //response.sendRedirect("login.jsp");
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
