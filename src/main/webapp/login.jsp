@@ -25,7 +25,7 @@
         <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="inputPassword">Password:</label>
             <div class="col-sm-5">
-                <input class="form-control" id="inputPassword" type="password" name="password" value='<%=request.getParameter("password")%>' placeholder="Password"/>
+                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Password"/>
             </div>
         </div>
         <div class="form-group row">

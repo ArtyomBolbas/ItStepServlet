@@ -1,5 +1,8 @@
 package com.itstep.app.controller;
 
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -7,19 +10,22 @@ import java.util.Arrays;
 
 public class HelloServlet extends HttpServlet {
 
+    private ServletContext context;
+
     private static final String USER_NAME = "username";
     private static final String USER_PASSWORD = "password";
 
     @Override
-    public void init() throws ServletException {
-        super.init();
-        System.out.println("Initialization of servlet");
+    public void init(ServletConfig servletConfig) throws ServletException {
+        super.init(servletConfig);
+        this.context = servletConfig.getServletContext();
+        this.context.log("HelloServlet initialized");
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("Hello servlet GET");
+        this.context.log("HelloServlet GET - " + request.getRemoteAddr() + "; " +  this.getServletName() + "; " +  this.getServletInfo());
         /*Cookie[] cookies = request.getCookies();
         Cookie login = getCookie(cookies, USER_NAME);
         Cookie password = getCookie(cookies, USER_PASSWORD);
@@ -42,7 +48,7 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Hello POST");
+        this.context.log("HelloServlet - " + request.getRemoteAddr() + "; " +  this.getServletName() + "; " +  this.getServletInfo());
 
 
 
