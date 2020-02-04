@@ -18,7 +18,24 @@
         <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="inputLogin">User Name:</label>
             <div class="col-sm-5">
-                <input class="form-control" id="inputLogin" type="text" name="username" value='<%=request.getParameter("username")%>' placeholder="Login"/>
+            <%
+            String userName = null;
+            Cookie[] cookies = request.getCookies();
+            if(cookies != null){
+                for(Cookie cookie : cookies){
+                    if(cookie.getName().equals("username")) userName = cookie.getValue();
+                }
+            }
+            if(userName != null) {
+                %>
+                <input class="form-control" id="inputLogin" type="text" name="username" value='<%=userName %>' placeholder="Login"/>
+                <%
+            } else {
+                %>
+                <input class="form-control" id="inputLogin" type="text" name="username" placeholder="Login"/>
+                <%
+            }
+            %>
             </div>
         </div>
 

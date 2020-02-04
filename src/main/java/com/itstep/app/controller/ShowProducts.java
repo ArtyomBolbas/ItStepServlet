@@ -10,6 +10,8 @@ import java.util.Map;
 
 public class ShowProducts extends HttpServlet {
 
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Hello GET");
